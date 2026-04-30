@@ -1,0 +1,16 @@
+services:
+  label-studio:
+    image: heartexlabs/label-studio:latest
+    container_name: sem-crack-label-studio
+    command: label-studio start --host 0.0.0.0 --port 8080 --data-dir /label-studio/data
+    ports:
+      - "8080:8080"
+    environment:
+      LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED: "true"
+      LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT: /label-studio/local-files
+    volumes:
+      - ./label_studio_data:/label-studio/data
+      - ./data:/label-studio/local-files/data:ro
+      - ./exports:/label-studio/exports
+      - ./labeling_config.xml:/label-studio/labeling_config.xml:ro
+    restart: unless-stopped

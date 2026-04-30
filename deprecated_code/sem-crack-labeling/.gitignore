@@ -1,0 +1,9 @@
+# Local Label Studio state and user data
+/label_studio_data/*
+/data/images/*
+/data/sam_predictions/*
+/exports/*
+
+# Keep folder placeholders
+!.gitkeep
+!*/.gitkeep

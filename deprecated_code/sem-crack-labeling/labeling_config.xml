@@ -1,0 +1,46 @@
+<View>
+  <Header value="SEM crack segmentation"/>
+
+  <Style>
+    .sem-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+    }
+    .sem-panel {
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+      padding: 8px;
+    }
+  </Style>
+
+  <View className="sem-layout">
+    <View className="sem-panel">
+      <Header value="Semantic segmentation masks"/>
+      <Image name="image" value="$image" zoom="true" zoomControl="true" rotateControl="true"/>
+      <BrushLabels name="semantic_mask" toName="image" opacity="0.45">
+        <Label value="crack" background="#ff2d55"/>
+        <Label value="particle" background="#00a3ff"/>
+        <Label value="background/ignore" background="#8e8e93"/>
+      </BrushLabels>
+    </View>
+
+    <View className="sem-panel">
+      <Header value="Instance outlines or corrections"/>
+      <PolygonLabels name="instances" toName="image" opacity="0.35" strokeWidth="2">
+        <Label value="crack" background="#ff2d55"/>
+        <Label value="particle" background="#00a3ff"/>
+        <Label value="background/ignore" background="#8e8e93"/>
+      </PolygonLabels>
+    </View>
+
+    <View className="sem-panel">
+      <Header value="Optional proposal quality"/>
+      <Choices name="sam_quality" toName="image" choice="single" showInLine="true">
+        <Choice value="useful"/>
+        <Choice value="partial"/>
+        <Choice value="reject"/>
+      </Choices>
+    </View>
+  </View>
+</View>

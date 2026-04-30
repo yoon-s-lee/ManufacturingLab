@@ -1,0 +1,13 @@
+# Pinned runtime requirements for the shipped pipeline + GUI.
+# Heavier dev/annotation/training deps are opt-in via pyproject extras.
+# Regenerate with: pip-compile pyproject.toml --resolver=backtracking  (or `pip freeze > requirements.lock` for a strict lock).
+
+numpy>=1.26,<3
+tifffile>=2024.1.30
+imagecodecs>=2024.1.1
+scikit-image>=0.22
+opencv-python>=4.9
+Pillow>=10.2
+PyYAML>=6.0
+onnxruntime>=1.17
+PySide6>=6.6
