@@ -25,16 +25,16 @@ from PIL import Image
 from sam3.model.sam3_image_processor import Sam3Processor
 from sam3.model_builder import build_sam3_image_model
 from skimage.measure import label, regionprops
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 # ---------------------------------------------------------------------------
 # CONFIG -- edit these to tune SAM 3.
 # ---------------------------------------------------------------------------
+ROOT = Path(__file__).resolve().parent.parent
 CONFIG = {
     # --- I/O ----------------------------------------------------------------
-    "image_path": Path(
-        "/Users/ariuseich/Code/CathodeCrackDetectionCode/"
-        "UW_SEM_Images_batch_1_no_infobar/8_1_1_lowmass_2.png"
-    ),
+    "image_path": ROOT / "UW_SEM_Images_batch_1_no_infobar" / "8_1_1_lowmass_2.png",
     "output_dir": Path(__file__).parent / "output",  # "single_simple" subdir auto-appended
 
     # Input resolution at which the image is resized before feeding to the

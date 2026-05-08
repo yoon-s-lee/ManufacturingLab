@@ -43,11 +43,12 @@ from PIL import Image, ImageDraw
 # ---------------------------------------------------------------------------
 x_0 = 470
 y_0 = 494
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
 CONFIG = {
-    "image_path": Path(
-        "/Users/ariuseich/Code/CathodeCrackDetectionCode/"
-        "UW_SEM_Images_batch_1_no_infobar/8_1_1_lowmass_2.png"
-    ),
+    "image_path": ROOT / "UW_SEM_Images_batch_1_no_infobar" / "8_1_1_lowmass_2.png",
 
     # Pixel [x0, y0, x1, y1] — same format as run_with_hints.py's
     # positive_boxes / negative_boxes. Edit this to the box you want to inspect.

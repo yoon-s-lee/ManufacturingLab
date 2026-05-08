@@ -46,12 +46,10 @@ from sam3.model_builder import build_sam3_image_model
 # ---------------------------------------------------------------------------
 # CONFIG -- edit these to tune the two-stage pipeline.
 # ---------------------------------------------------------------------------
+ROOT = Path(__file__).resolve().parent.parent
 CONFIG = {
     # --- I/O ----------------------------------------------------------------
-    "image_path": Path(
-        "/Users/ariuseich/Code/CathodeCrackDetectionCode/"
-        "UW_SEM_Images_batch_1_no_infobar/8_1_1_lowmass_2.png"
-    ),
+    "image_path": ROOT / "UW_SEM_Images_batch_1_no_infobar" / "8_1_1_lowmass_2.png",
     "output_dir": Path(__file__).parent / "output",  # "particle_crack" subdir auto-appended
 
     # --- Stage 1: particles ------------------------------------------------
